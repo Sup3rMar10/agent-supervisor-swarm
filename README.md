@@ -4,7 +4,7 @@
 
 A **supervisor** that runs a multi-agent plan: specialist workers, a validated task graph, parallel execution, typed handoffs, a shared budget, loop detection, an explicit failure policy and dynamic fan-out. The idea is that everything a model must not be trusted with lives in ordinary, tested code around it.
 
-> **What is verified, and what is not.** 41 tests pass locally on Python 3.13 (stdlib only; `pytest` to run them). I also broke the code on purpose twice and confirmed the tests catch it (removing the loop guard fails the loop test; forcing one worker thread fails the parallelism test). **There is no live model anywhere in this repo.** The workers are deterministic Python stand-ins over made-up data, so what is tested is the supervision, not whether a model plans or reasons well. The optional Claude transport (`swarm/llm.py`) has never been run against the live API.
+> **What is verified, and what is not.** 41 tests pass locally on Python 3.13, and in GitHub Actions on Linux with Python 3.11 and 3.13 (stdlib only; `pytest` to run them). I also broke the code on purpose twice and confirmed the tests catch it (removing the loop guard fails the loop test; forcing one worker thread fails the parallelism test). **There is no live model anywhere in this repo.** The workers are deterministic Python stand-ins over made-up data, so what is tested is the supervision, not whether a model plans or reasons well. The optional Claude transport (`swarm/llm.py`) has never been run against the live API.
 
 ## What the supervisor guarantees
 
